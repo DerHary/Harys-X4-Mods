@@ -11,9 +11,7 @@
     <price min="55000" average="65000" max="75000" />
     <production time="60" amount="1" method="default" name="{20206,101}">
       <primary>
-        <ware ware="advancedelectronics" amount="7" />
-        <ware ware="energycells" amount="12" />
-        <ware ware="scanningarrays" amount="7" />
+        <ware ware="energycells" amount="1000" />
       </primary>
     </production>
     <production time="60" amount="1" method="xenon" name="{20206,601}" tags="noplayerbuild">

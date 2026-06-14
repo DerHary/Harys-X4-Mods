@@ -5,7 +5,7 @@
     <properties>
       <identification name="{20101,1}" description="{20101,2}" deployable="1" icon="mapob_satellite_02" inactiveicon="mapob_satellite_02_inactive" />
       <explosioneffect strength="500" />
-      <radar range="225000" />
+      <radar range="300000" />
       <hull max="10000" />
     </properties>
   </macro>
