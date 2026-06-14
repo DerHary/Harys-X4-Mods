@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<language id="44">
+  <page id="746569">
+    <t id="1">Adds a station context menu action to fill trade storage to 100% of its target amount. Only affects wares added as trade wares.</t>
+  </page>
+</language>

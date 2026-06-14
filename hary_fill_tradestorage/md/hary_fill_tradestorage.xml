@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mdscript name="hary_fill_tradestorage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <cues>
+    <cue name="Add_Interact_Actions" instantiate="true">
+      <conditions>
+        <event_cue_signalled cue="md.Interact_Menu_API.Get_Actions" />
+      </conditions>
+      <actions>
+        <set_value name="$target" exact="event.param.$object" />
+        <do_if value="$target and $target.isclass.{class.station}">
+          <do_if value="$target.isplayerowned">
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id        = 'hary_fill_tradestorage',
+                $section   = 'main',
+                $text      = 'CHEAT - Fill Tradestorage',
+                $mouseover = 'Fill trade storage to 100%',
+                $callback  = Fill_Tradestorage,
+                ]"/>
+          </do_if>
+        </do_if>
+      </actions>
+    </cue>
+
+    <cue name="Fill_Tradestorage" instantiate="true">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <set_value name="$station" exact="event.param.$object" />
+        <do_if value="$station and $station.isclass.{class.station}">
+          <set_value name="$wares" exact="$station.tradewares.list" />
+          <do_all exact="$wares.count" counter="$k">
+            <set_value name="$ware" exact="$wares.{$k}" />
+            <set_value name="$target" exact="$station.cargo.{$ware}.target" />
+            <set_value name="$current" exact="$station.cargo.{$ware}.count" />
+            <set_value name="$max" exact="$station.cargo.{$ware}.max" />
+            <set_value name="$missing" exact="if ($target? and $target gt 0) then $target - $current else $max" />
+            <do_if value="$missing gt 0">
+              <add_cargo object="$station" ware="$ware" exact="$missing" />
+            </do_if>
+          </do_all>
+        </do_if>
+      </actions>
+    </cue>
+  </cues>
+</mdscript>

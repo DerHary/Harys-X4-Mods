@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wares>
+
+  <!-- Satellite Mk3 -->
+  <ware id="satellite_mk3"
+        name="{20101,1}"
+        description="{20101,2}"
+        transport="equipment"
+        volume="1"
+        tags="equipment satellite">
+    <price min="55000" average="65000" max="75000" />
+    <production time="60" amount="1" method="default" name="{20206,101}">
+      <primary>
+        <ware ware="advancedelectronics" amount="7" />
+        <ware ware="energycells" amount="12" />
+        <ware ware="scanningarrays" amount="7" />
+      </primary>
+    </production>
+    <production time="60" amount="1" method="xenon" name="{20206,601}" tags="noplayerbuild">
+      <primary>
+        <ware ware="energycells" amount="10" />
+        <ware ware="silicon" amount="1" />
+      </primary>
+    </production>
+    <component ref="satellite_mk3_macro" />
+    <use threshold="0" />
+  </ware>
+
+</wares>

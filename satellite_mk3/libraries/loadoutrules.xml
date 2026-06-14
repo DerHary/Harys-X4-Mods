@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/rules/deployable/macros">
+    <macro category="satellite" mk="3" macro="satellite_mk3_macro" />
+  </add>
+  <!-- Ensure NPC loadouts never pick Mk3 satellites even if other mods add rules -->
+  <remove sel="/rules/deployable/rules/ruleset[@type='default']/rule[@category='satellite' and @mk='3']" />
+  <remove sel="/rules/deployable/rules/ruleset[@type='xenon']/rule[@category='satellite' and @mk='3']" />
+  <remove sel="/rules/deployable/rules/ruleset[@type='military']/rule[@category='satellite' and @mk='3']" />
+  <remove sel="/rules/deployable/rules/ruleset[@type='highvalue']/rule[@category='satellite' and @mk='3']" />
+</diff>

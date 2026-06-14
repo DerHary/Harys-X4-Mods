@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mdscript name="hary_fill_buildstorage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <cues>
+    <cue name="Add_Interact_Actions" instantiate="true">
+      <conditions>
+        <event_cue_signalled cue="md.Interact_Menu_API.Get_Actions" />
+      </conditions>
+      <actions>
+        <set_value name="$target" exact="event.param.$object" />
+        <set_value name="$construction" exact="event.param.$construction" />
+        <set_value name="$offsetcomponent" exact="event.param.$offsetcomponent" />
+        <set_value name="$hasbuildstorage" exact="false" />
+        <do_if value="$target and ($target.isclass.station or $target.isclass.buildstorage or $target.buildstorage?)">
+          <set_value name="$hasbuildstorage" exact="true" />
+        </do_if>
+        <do_if value="not $hasbuildstorage and $construction and ($construction.isclass.station or $construction.isclass.buildstorage or $construction.buildstorage?)">
+          <set_value name="$hasbuildstorage" exact="true" />
+        </do_if>
+        <do_if value="not $hasbuildstorage and $offsetcomponent and ($offsetcomponent.isclass.station or $offsetcomponent.isclass.buildstorage or $offsetcomponent.buildstorage?)">
+          <set_value name="$hasbuildstorage" exact="true" />
+        </do_if>
+        <do_if value="$hasbuildstorage">
+          <signal_cue_instantly
+            cue="md.Interact_Menu_API.Add_Action"
+            param="table[
+              $id        = 'hary_fill_buildstorage',
+              $section   = 'main',
+              $text      = 'CHEAT - Fill Buildstorage',
+              $mouseover = 'Fill build storage with required construction wares',
+              $callback  = Fill_Buildstorage,
+              ]"/>
+        </do_if>
+      </actions>
+    </cue>
+
+    <cue name="Fill_Buildstorage" instantiate="true">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <set_value name="$target" exact="event.param.$object" />
+        <set_value name="$construction" exact="event.param.$construction" />
+        <set_value name="$offsetcomponent" exact="event.param.$offsetcomponent" />
+        <set_value name="$buildstorage" exact="null" />
+        <do_if value="$target and ($target.isclass.buildstorage or $target.buildstorage?)">
+          <set_value name="$buildstorage" exact="if $target.isclass.buildstorage then $target else $target.buildstorage" />
+        </do_if>
+        <do_if value="not $buildstorage and $construction and ($construction.isclass.buildstorage or $construction.buildstorage?)">
+          <set_value name="$buildstorage" exact="if $construction.isclass.buildstorage then $construction else $construction.buildstorage" />
+        </do_if>
+        <do_if value="not $buildstorage and $offsetcomponent and ($offsetcomponent.isclass.buildstorage or $offsetcomponent.buildstorage?)">
+          <set_value name="$buildstorage" exact="if $offsetcomponent.isclass.buildstorage then $offsetcomponent else $offsetcomponent.buildstorage" />
+        </do_if>
+        <do_if value="$buildstorage">
+          <set_value name="$buildprocessor" exact="$buildstorage.buildprocessor" />
+          <do_if value="$buildprocessor">
+            <set_value name="$buildwares" exact="$buildprocessor.neededsequenceresources.list" />
+            <do_all exact="$buildwares.count" counter="$k">
+              <set_value name="$ware" exact="$buildwares.{$k}" />
+              <set_value name="$needed" exact="$buildprocessor.neededsequenceresources.{$ware}.count" />
+              <do_if value="$needed gt 0">
+                <add_cargo object="$buildstorage" ware="$ware" exact="$needed" />
+              </do_if>
+            </do_all>
+          </do_if>
+        </do_if>
+      </actions>
+    </cue>
+  </cues>
+</mdscript>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content id="ws_3657330267" name="CHEAT - Fill Tradestorage" author="hary" version="100" date="2026-01-31" save="false" description="{746569,1}" sync="false" lastupdate="1769870131">
+  <dependency version="800"/>
+  <dependency id="ws_2042901274" optional="false" name="SirNukes Mod Support APIs" version="193"/>
+</content>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="satellite_mk3_macro" class="satellite">
+    <component ref="eq_arg_satellite_01" />
+    <properties>
+      <identification name="{20101,1}" description="{20101,2}" deployable="1" icon="mapob_satellite_02" inactiveicon="mapob_satellite_02_inactive" />
+      <explosioneffect strength="500" />
+      <radar range="225000" />
+      <hull max="10000" />
+    </properties>
+  </macro>
+</macros>

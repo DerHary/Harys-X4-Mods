@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components>
+  <component name="satellite_mk3" class="satellite">
+    <properties>
+      <identification name="{20101,1}" />
+      <radar range="80000" />
+    </properties>
+
+    <connections>
+      <connection ref="space" />
+    </connections>
+
+    <source ref="units_equipment_satellite_adv_macro" />
+  </component>
+</components>
