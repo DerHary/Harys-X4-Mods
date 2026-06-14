@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language id="39">
+  <page id="920103">
+    <t id="1">Satellite Placer Mk3</t>
+    <t id="3">\033C%1\033X has installed \033C%3\033X in \033C%2\033X for \033C%4\033X credits.</t>
+    <t id="4">\033C%1\033X requires at least \033C%2\033X credits to buy a satellite.</t>
+    <t id="5">Continue to next sector</t>
+    <t id="6">Use Satellite Mk3</t>
+    <t id="8">Vertical offset</t>
+    <t id="9">Center around sector core</t>
+    <t id="10">Deploy one player-owned satellite at the center of each reachable sector. Uses the ship's civilian global travel and activity blacklists.</t>
+  </page>
+</language>

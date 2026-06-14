@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/defaults">
+    <!--Destiny-->
+    <dataset macro="Cluster_901_macro">
+      <properties>
+        <identification name="{20003,910001}" description="{20003,910002}" image="enc_cluster49"/>
+        <area god="false" />
+        <system>
+          <space environment="{1042,12031}(Nebula)"/>
+          <suns>
+            <sun class="{1042,13121}(Blue Giant)"/>
+          </suns>
+          <planets>
+            <planet name="{20005,910051}(Destiny Prime)" class="{1042,14101}(Earth Analog)" geology="{1042,15021}(Mountains)" atmosphere="{1042,11071}(Nitrogen/Oxygen)" population="{1042,10011}(None)" settlements="{1042,16011}(Uninhabited)" part="planet001c" atmopart="atmosphere001">
+              <moons>
+                <moon name="{20005,910052}(Elysia)" geology="{1042,15061}(Canyons)" atmosphere="{1042,11021}(Hydrogen)" population="{1042,10011}(None)" settlements="{1042,16011}(Uninhabited)"/>
+              </moons>
+              <shaderparams>
+                <shaderparam name="polarscale" stat="temperature">
+                  <param position="0" value="0" />
+                  <param position="3" value="0.15" />
+                  <param position="6" value="1.0" />
+                </shaderparam>
+                <shaderparam name="citylevel" stat="population">
+                  <param position="0" value="0" />
+                  <param position="10000000000" value="1" />
+                </shaderparam>
+              </shaderparams>
+            </planet>
+          </planets>
+        </system>
+      </properties>
+    </dataset>
+
+    <dataset macro="Cluster_901_Sector001_macro">
+      <properties>
+        <identification name="{20004,910011}" description="{20004,910012}" />
+        <area sunlight="1.40" economy="1.0" security="0.6" tags="allowrandomanomaly"/>
+        <worlds>
+          <world part="planet001c"/>
+        </worlds>
+      </properties>
+    </dataset>
+  </add>
+</diff>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<aiscript name="lib.satelliteplacermk3.check" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="aiscripts.xsd" version="1">
+  <params>
+    <param name="fs_sector" />
+    <param name="fs_usecore" type="bool" default="true" />
+    <param name="fs_height" type="length" default="10km" />
+  </params>
+  <attention min="unknown">
+    <actions>
+      <do_if value="$fs_usecore">
+        <set_value name="$fs_anchor" exact="$fs_sector.coreposition"/>
+      </do_if>
+      <do_else>
+        <set_value name="$fs_anchor" exact="position.[0,0,0]"/>
+      </do_else>
+
+      <set_value name="$fs_anchor" exact="position.[$fs_anchor.x, $fs_anchor.y + $fs_height, $fs_anchor.z]"/>
+      <create_position name="$finalpos" x="$fs_anchor.x" y="$fs_anchor.y" z="$fs_anchor.z" space="$fs_sector"/>
+
+      <set_value name="$fs_needcoverage" exact="true" />
+      <find_object name="$fs_satellites" macro="[macro.satellite_mk3_macro, macro.eq_arg_satellite_01_macro, macro.eq_arg_satellite_02_macro]" space="$fs_sector" owner="faction.player" multiple="true"/>
+      <do_all exact="$fs_satellites.count" counter="$sati">
+        <do_if value="$fs_satellites.{$sati}.position.distanceto.{$finalpos} lt ($fs_satellites.{$sati}.macro.maxradarrange - 1km)">
+          <set_value name="$fs_needcoverage" exact="false" />
+          <break />
+        </do_if>
+      </do_all>
+
+      <return>
+        <retval name="finalpos" value="$finalpos" />
+        <retval name="needcoverage" value="$fs_needcoverage" />
+      </return>
+    </actions>
+  </attention>
+</aiscript>

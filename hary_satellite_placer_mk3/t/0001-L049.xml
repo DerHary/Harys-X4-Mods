@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language id="49">
+  <page id="920103">
+    <t id="1">Satellitenleger Mk3</t>
+    <t id="3">\033C%1\033X hat \033C%3\033X in \033C%2\033X für \033C%4\033X Credits installiert.</t>
+    <t id="4">\033C%1\033X benötigt mindestens \033C%2\033X Credits, um einen Satelliten zu kaufen.</t>
+    <t id="5">Weiter in den nächsten Sektor</t>
+    <t id="6">Satellite Mk3 verwenden</t>
+    <t id="8">Vertikaler Versatz</t>
+    <t id="9">Am Sektorkern zentrieren</t>
+    <t id="10">Setzt einen spielereigenen Satelliten im Zentrum jedes erreichbaren Sektors. Verwendet die globalen zivilen Reise- und Aktivitaetssperrlisten des Schiffs.</t>
+  </page>
+</language>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<diff>
+  <add
+    sel="/aiscript/attention/actions/do_if[@value='$order.exists or (@$orderdef and $createdefaultorder?)']/do_if[@value='(@$orderdef and $createdefaultorder?) or not $order.requiredskill or (this.combinedskill ge $order.requiredskill)']">
+    <do_if value="$order.id == 'SatellitePlacerMk3'">
+      <set_value name="$added" />
+      <do_if value="$createdefaultorder?">
+        <create_order id="$orderdef.$id" object="this.assignedcontrolled" default="true">
+          <param name="fs_continue" value="$orderdef.$fs_continue" />
+          <param name="fs_usemk3" value="$orderdef.$fs_usemk3" />
+          <param name="fs_height" value="$orderdef.$fs_height" />
+          <param name="fs_usecore" value="$orderdef.$fs_usecore" />
+        </create_order>
+      </do_if>
+      <do_else>
+        <set_value name="$orderdef.$fs_continue" exact="$order.$fs_continue" />
+        <set_value name="$orderdef.$fs_usemk3" exact="$order.$fs_usemk3" />
+        <set_value name="$orderdef.$fs_height" exact="$order.$fs_height" />
+        <set_value name="$orderdef.$fs_usecore" exact="$order.$fs_usecore" />
+        <run_script name="$scriptname">
+          <param name="fs_continue" value="$orderdef.$fs_continue" />
+          <param name="fs_usemk3" value="$orderdef.$fs_usemk3" />
+          <param name="fs_height" value="$orderdef.$fs_height" />
+          <param name="fs_usecore" value="$orderdef.$fs_usecore" />
+        </run_script>
+      </do_else>
+    </do_if>
+  </add>
+</diff>

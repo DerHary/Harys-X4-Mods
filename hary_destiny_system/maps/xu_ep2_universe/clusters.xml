@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/macros">
+    <macro name="Cluster_901_macro" class="cluster">
+      <component ref="standardcluster" />
+      <connections>
+        <connection name="C901S01_Nebula_connection" ref="regions">
+          <macro name="C901S01_Nebula_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="region_cluster_XYZ_sector_001_nebula_1" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Ore_connection" ref="regions">
+          <offset>
+            <position x="120000" y="0" z="80000" />
+          </offset>
+          <macro name="C901S01_Region_Ore_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="region_highyield_ore" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Silicon_connection" ref="regions">
+          <offset>
+            <position x="-140000" y="0" z="-60000" />
+          </offset>
+          <macro name="C901S01_Region_Silicon_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="region_highyield_silicon" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Nividium_connection" ref="regions">
+          <offset>
+            <position x="160000" y="0" z="-120000" />
+          </offset>
+          <macro name="C901S01_Region_Nividium_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="region_highyield_nividium" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Ice_connection" ref="regions">
+          <offset>
+            <position x="-90000" y="0" z="140000" />
+          </offset>
+          <macro name="C901S01_Region_Ice_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="p1_40km_ice_field" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Hydrogen_connection" ref="regions">
+          <offset>
+            <position x="60000" y="0" z="140000" />
+          </offset>
+          <macro name="C901S01_Region_Hydrogen_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="p1_80km_hydrogen_field" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Helium_connection" ref="regions">
+          <offset>
+            <position x="-160000" y="0" z="20000" />
+          </offset>
+          <macro name="C901S01_Region_Helium_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="p1_40km_helium_highyield_field" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Methane_connection" ref="regions">
+          <offset>
+            <position x="80000" y="0" z="-160000" />
+          </offset>
+          <macro name="C901S01_Region_Methane_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="p1_40km_methane_highyield_field" />
+            </properties>
+          </macro>
+        </connection>
+
+        
+        <connection name="C901S01_Region_Ore_2_connection" ref="regions">
+          <offset>
+            <position x="-220000" y="0" z="100000" />
+          </offset>
+          <macro name="C901S01_Region_Ore_2_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="region_highyield_ore" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Silicon_2_connection" ref="regions">
+          <offset>
+            <position x="220000" y="0" z="-100000" />
+          </offset>
+          <macro name="C901S01_Region_Silicon_2_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="region_highyield_silicon" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Nividium_2_connection" ref="regions">
+          <offset>
+            <position x="-240000" y="0" z="-140000" />
+          </offset>
+          <macro name="C901S01_Region_Nividium_2_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="region_highyield_nividium" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Ice_2_connection" ref="regions">
+          <offset>
+            <position x="0" y="0" z="240000" />
+          </offset>
+          <macro name="C901S01_Region_Ice_2_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="p1_40km_ice_field" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Hydrogen_2_connection" ref="regions">
+          <offset>
+            <position x="0" y="0" z="-240000" />
+          </offset>
+          <macro name="C901S01_Region_Hydrogen_2_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="p1_80km_hydrogen_field" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Helium_2_connection" ref="regions">
+          <offset>
+            <position x="240000" y="0" z="0" />
+          </offset>
+          <macro name="C901S01_Region_Helium_2_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="p1_40km_helium_highyield_field" />
+            </properties>
+          </macro>
+        </connection>
+        <connection name="C901S01_Region_Methane_2_connection" ref="regions">
+          <offset>
+            <position x="-240000" y="0" z="0" />
+          </offset>
+          <macro name="C901S01_Region_Methane_2_macro">
+            <component connection="cluster" ref="standardregion" />
+            <properties>
+              <region ref="p1_40km_methane_highyield_field" />
+            </properties>
+          </macro>
+        </connection>
+<connection name="Cluster_901_Sector001_connection" ref="sectors">
+          <macro ref="Cluster_901_Sector001_macro" connection="cluster" />
+        </connection>
+        <connection ref="content">
+          <macro>
+            <component connection="space" ref="Cluster_49" />
+          </macro>
+        </connection>
+      </connections>
+    </macro>
+  </add>
+</diff>

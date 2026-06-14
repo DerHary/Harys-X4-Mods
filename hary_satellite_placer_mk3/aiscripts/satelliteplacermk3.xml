@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<aiscript name="satelliteplacermk3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="aiscripts.xsd" version="1">
+  <order id="SatellitePlacerMk3" name="{920103, 1}" description="{920103, 10}" category="navigation" infinite="true">
+    <params>
+      <param name="fs_continue" default="true" type="bool" text="{920103, 5}"/>
+      <param name="fs_usemk3" default="true" type="bool" text="{920103, 6}"/>
+      <param name="fs_height" type="length" default="10km" text="{920103, 8}">
+        <input_param name="min" value="0km"/>
+        <input_param name="max" value="100km"/>
+        <input_param name="step" value="5km"/>
+      </param>
+      <param name="fs_usecore" default="true" type="bool" text="{920103, 9}"/>
+    </params>
+    <requires>
+      <match shiptype="shiptype.lasertower" negate="true"/>
+    </requires>
+  </order>
+
+  <interrupts>
+    <handler ref="AttackHandler" />
+    <handler ref="MissileLockHandler" />
+    <handler ref="ScannedHandler" />
+    <handler ref="InspectedHandler"/>
+    <handler ref="TargetInvalidHandler"/>
+  </interrupts>
+
+  <init>
+    <set_value name="$fs_satellite_price" exact="500000" />
+    <set_order_syncpoint_reached order="this.ship.order"/>
+    <set_command_action commandaction="commandaction.standingby"/>
+  </init>
+
+  <attention min="unknown">
+    <actions>
+      <label name="start"/>
+
+      <set_command command="command.patrol"/>
+      <set_command_action commandaction="commandaction.standingby"/>
+      <set_value name="$fs_satellite_macro" exact="if $fs_usemk3 then macro.satellite_mk3_macro else macro.eq_arg_satellite_02_macro" />
+      <remove_value name="$fs_targetsector" />
+
+      <do_if value="$fs_continue">
+        <set_value name="$fs_range" exact="0"/>
+        <do_while value="not $fs_targetsector? and $fs_range lt 100">
+          <find_sector_in_range name="$fs_sectors" object="this.ship" mindistance="$fs_range" maxdistance="$fs_range" multiple="true"/>
+          <do_if value="$fs_sectors.count">
+            <shuffle_list list="$fs_sectors"/>
+            <do_all exact="$fs_sectors.count" counter="$si">
+              <set_value name="$fs_sector" exact="$fs_sectors.{$si}"/>
+              <do_if value="not ($fs_sector.isblacklisted.{blacklisttype.sectoractivity}.{blacklistgroup.civilian}.{this.assignedcontrolled} or $fs_sector.isblacklisted.{blacklisttype.sectortravel}.{blacklistgroup.civilian}.{this.assignedcontrolled})">
+                <run_script name="'lib.satelliteplacermk3.check'">
+                  <param name="fs_sector" value="$fs_sector" />
+                  <param name="fs_usecore" value="$fs_usecore" />
+                  <param name="fs_height" value="$fs_height" />
+                  <save_retval name="finalpos" variable="$finalpos" />
+                  <save_retval name="needcoverage" variable="$fs_needcoverage" />
+                </run_script>
+                <do_if value="$fs_needcoverage">
+                  <set_value name="$fs_targetsector" exact="$fs_sector"/>
+                  <break/>
+                </do_if>
+              </do_if>
+            </do_all>
+          </do_if>
+
+          <set_value name="$fs_range" exact="$fs_range + 1"/>
+        </do_while>
+      </do_if>
+      <do_else>
+        <do_if value="not (this.ship.sector.isblacklisted.{blacklisttype.sectoractivity}.{blacklistgroup.civilian}.{this.assignedcontrolled} or this.ship.sector.isblacklisted.{blacklisttype.sectortravel}.{blacklistgroup.civilian}.{this.assignedcontrolled})">
+          <set_value name="$fs_targetsector" exact="this.ship.sector"/>
+        </do_if>
+      </do_else>
+
+      <do_if value="not $fs_targetsector?">
+        <wait min="20s" max="30s"/>
+        <resume label="start"/>
+      </do_if>
+
+      <run_script name="'lib.satelliteplacermk3.check'">
+        <param name="fs_sector" value="$fs_targetsector" />
+        <param name="fs_usecore" value="$fs_usecore" />
+        <param name="fs_height" value="$fs_height" />
+        <save_retval name="finalpos" variable="$finalpos" />
+        <save_retval name="needcoverage" variable="$fs_needcoverage" />
+      </run_script>
+
+      <do_if value="not $fs_needcoverage">
+        <wait min="2s" max="4s"/>
+        <resume label="start"/>
+      </do_if>
+
+      <do_if value="this.ship.sector != $fs_targetsector">
+        <set_command_action commandaction="commandaction.flyingto" param="$fs_targetsector"/>
+        <move_to object="this.ship" destination="$fs_targetsector" abortpath="true" forcerotation="true" forceposition="true" uselocalhighways="false" boost="false" travel="true" commandaction="false" useblacklist="blacklistgroup.civilian">
+          <position value="$finalpos"/>
+          <interrupt_after_time time="600s"/>
+        </move_to>
+        <stop_moving object="this.ship"/>
+      </do_if>
+
+      <run_script name="'lib.satelliteplacermk3.check'">
+        <param name="fs_sector" value="this.ship.sector" />
+        <param name="fs_usecore" value="$fs_usecore" />
+        <param name="fs_height" value="$fs_height" />
+        <save_retval name="finalpos" variable="$finalpos" />
+        <save_retval name="needcoverage" variable="$fs_needcoverage" />
+      </run_script>
+
+      <do_if value="not $fs_needcoverage">
+        <wait min="2s" max="4s"/>
+        <resume label="start"/>
+      </do_if>
+
+      <do_if value="this.ship.sector == $fs_targetsector">
+        <set_command_action commandaction="commandaction.flying"/>
+        <move_to object="this.ship" destination="this.ship.sector" abortpath="true" forcerotation="true" forceposition="true" uselocalhighways="false" boost="false" travel="true">
+          <position value="$finalpos"/>
+          <interrupt_after_time time="600s"/>
+        </move_to>
+        <stop_moving object="this.ship"/>
+
+        <run_script name="'lib.satelliteplacermk3.check'">
+          <param name="fs_sector" value="this.ship.sector" />
+          <param name="fs_usecore" value="$fs_usecore" />
+          <save_retval name="finalpos" variable="$finalpos" />
+          <save_retval name="needcoverage" variable="$fs_needcoverage" />
+        </run_script>
+      </do_if>
+
+      <do_if value="$fs_needcoverage and this.ship.sector == $fs_targetsector">
+        <do_if value="player.money lt $fs_satellite_price">
+          <set_command_action commandaction="commandaction.standingby"/>
+          <write_to_logbook category="general" title="{920103, 1}" text="{920103, 4}.[this.ship.name, $fs_satellite_price / 100]" />
+          <wait min="60s" max="90s"/>
+          <resume label="start"/>
+        </do_if>
+
+        <reward_player money="(-$fs_satellite_price * 100) / 1Cr"/>
+        <create_object name="$fs_constructed" macro="$fs_satellite_macro" owner="faction.player" sector="this.ship.sector">
+          <position x="$finalpos.x" y="$finalpos.y" z="$finalpos.z"/>
+        </create_object>
+        <write_to_logbook category="general" title="{920103, 1}" text="{920103, 3}.[this.ship.name, this.ship.sector.knownname, $fs_constructed.name, $fs_satellite_price / 100]" />
+      </do_if>
+
+      <wait min="4s" max="7s"/>
+      <resume label="start"/>
+    </actions>
+  </attention>
+</aiscript>

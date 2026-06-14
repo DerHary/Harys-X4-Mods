@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content id="hary_satellite_placer_mk3" name="Satellite Placer Mk3" author="Hary" version="100" date="2026-06-14" save="0" description="SATELLITE PLACER MK3&#13;&#10;&#13;&#10;Adds a new default ship job that deploys one player-owned satellite in the center of each reachable sector.&#13;&#10;&#13;&#10;:: FEATURES ::&#13;&#10;• New default job for ships&#13;&#10;• Respects civilian travel and activity blacklists&#13;&#10;• Auto-buys satellites for 5,000 credits each&#13;&#10;• Uses Satellite Mk3 by default&#13;&#10;• Can switch to vanilla advanced satellites in job settings&#13;&#10;&#13;&#10;:: INFO ::&#13;&#10;• Requires Satellite Mk3 extension&#13;&#10;• Savegame will require the Extension once saved with it&#13;&#10;&#13;&#10;:: CREDITS ::&#13;&#10;♦ Hary74656 (Nexusmods)/Hary (Steam)">
+  <dependency id="ws_3649092747" version="103" optional="false" name="Satellite Mk3" />
+</content>

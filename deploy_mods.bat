@@ -16,6 +16,8 @@ if not exist "%TARGET_DIR%" (
 
 call :deploy_mod "hary_fill_buildstorage"
 call :deploy_mod "hary_fill_tradestorage"
+call :deploy_mod "hary_destiny_system"
+call :deploy_mod "hary_satellite_placer_mk3"
 call :deploy_mod "satellite_mk3"
 
 echo.
