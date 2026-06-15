@@ -25,6 +25,10 @@
   </interrupts>
 
   <init>
+    <do_if value="not global.$hary_satellite_placer_reservations?">
+      <set_value name="global.$hary_satellite_placer_reservations" exact="table[]"/>
+    </do_if>
+
     <set_value name="$fs_satellite_price" exact="500000" />
     <set_order_syncpoint_reached order="this.ship.order"/>
     <set_command_action commandaction="commandaction.standingby"/>
@@ -47,15 +51,22 @@
             <shuffle_list list="$fs_sectors"/>
             <do_all exact="$fs_sectors.count" counter="$si">
               <set_value name="$fs_sector" exact="$fs_sectors.{$si}"/>
-              <do_if value="not ($fs_sector.isblacklisted.{blacklisttype.sectoractivity}.{blacklistgroup.civilian}.{this.assignedcontrolled} or $fs_sector.isblacklisted.{blacklisttype.sectortravel}.{blacklistgroup.civilian}.{this.assignedcontrolled})">
+              <set_value name="$fs_sectoravailable" exact="true"/>
+              <do_if value="global.$hary_satellite_placer_reservations.{$fs_sector}? and @global.$hary_satellite_placer_reservations.{$fs_sector}.{2} gt player.age and @global.$hary_satellite_placer_reservations.{$fs_sector}.{1} != this.ship">
+                <set_value name="$fs_sectoravailable" exact="false"/>
+              </do_if>
+
+              <do_if value="$fs_sectoravailable and not ($fs_sector.isblacklisted.{blacklisttype.sectoractivity}.{blacklistgroup.civilian}.{this.assignedcontrolled} or $fs_sector.isblacklisted.{blacklisttype.sectortravel}.{blacklistgroup.civilian}.{this.assignedcontrolled})">
                 <run_script name="'lib.satelliteplacermk3.check'">
                   <param name="fs_sector" value="$fs_sector" />
                   <param name="fs_usecore" value="$fs_usecore" />
+                  <param name="fs_usemk3" value="$fs_usemk3" />
                   <param name="fs_height" value="$fs_height" />
                   <save_retval name="finalpos" variable="$finalpos" />
                   <save_retval name="needcoverage" variable="$fs_needcoverage" />
                 </run_script>
                 <do_if value="$fs_needcoverage">
+                  <set_value name="global.$hary_satellite_placer_reservations.{$fs_sector}" exact="table[{1}=this.ship, {2}=player.age + 1200s]"/>
                   <set_value name="$fs_targetsector" exact="$fs_sector"/>
                   <break/>
                 </do_if>
@@ -80,13 +91,26 @@
       <run_script name="'lib.satelliteplacermk3.check'">
         <param name="fs_sector" value="$fs_targetsector" />
         <param name="fs_usecore" value="$fs_usecore" />
+        <param name="fs_usemk3" value="$fs_usemk3" />
         <param name="fs_height" value="$fs_height" />
         <save_retval name="finalpos" variable="$finalpos" />
         <save_retval name="needcoverage" variable="$fs_needcoverage" />
       </run_script>
 
       <do_if value="not $fs_needcoverage">
+        <do_if value="global.$hary_satellite_placer_reservations.{$fs_targetsector}? and @global.$hary_satellite_placer_reservations.{$fs_targetsector}.{1} == this.ship">
+          <remove_value name="global.$hary_satellite_placer_reservations.{$fs_targetsector}"/>
+        </do_if>
         <wait min="2s" max="4s"/>
+        <resume label="start"/>
+      </do_if>
+
+      <do_if value="not global.$hary_satellite_placer_reservations.{$fs_targetsector}? or @global.$hary_satellite_placer_reservations.{$fs_targetsector}.{2} le player.age or @global.$hary_satellite_placer_reservations.{$fs_targetsector}.{1} == this.ship">
+        <set_value name="global.$hary_satellite_placer_reservations.{$fs_targetsector}" exact="table[{1}=this.ship, {2}=player.age + 1200s]"/>
+      </do_if>
+
+      <do_if value="not (global.$hary_satellite_placer_reservations.{$fs_targetsector}? and @global.$hary_satellite_placer_reservations.{$fs_targetsector}.{1} == this.ship and @global.$hary_satellite_placer_reservations.{$fs_targetsector}.{2} gt player.age)">
+        <wait min="5s" max="10s"/>
         <resume label="start"/>
       </do_if>
 
@@ -102,6 +126,7 @@
       <run_script name="'lib.satelliteplacermk3.check'">
         <param name="fs_sector" value="this.ship.sector" />
         <param name="fs_usecore" value="$fs_usecore" />
+        <param name="fs_usemk3" value="$fs_usemk3" />
         <param name="fs_height" value="$fs_height" />
         <save_retval name="finalpos" variable="$finalpos" />
         <save_retval name="needcoverage" variable="$fs_needcoverage" />
@@ -130,6 +155,9 @@
 
       <do_if value="$fs_needcoverage and this.ship.sector == $fs_targetsector">
         <do_if value="player.money lt $fs_satellite_price">
+          <do_if value="global.$hary_satellite_placer_reservations.{$fs_targetsector}? and @global.$hary_satellite_placer_reservations.{$fs_targetsector}.{1} == this.ship">
+            <remove_value name="global.$hary_satellite_placer_reservations.{$fs_targetsector}"/>
+          </do_if>
           <set_command_action commandaction="commandaction.standingby"/>
           <write_to_logbook category="general" title="{920103, 1}" text="{920103, 4}.[this.ship.name, $fs_satellite_price / 100]" />
           <wait min="60s" max="90s"/>
@@ -141,6 +169,10 @@
           <position x="$finalpos.x" y="$finalpos.y" z="$finalpos.z"/>
         </create_object>
         <write_to_logbook category="general" title="{920103, 1}" text="{920103, 3}.[this.ship.name, this.ship.sector.knownname, $fs_constructed.name, $fs_satellite_price / 100]" />
+      </do_if>
+
+      <do_if value="$fs_targetsector? and global.$hary_satellite_placer_reservations.{$fs_targetsector}? and @global.$hary_satellite_placer_reservations.{$fs_targetsector}.{1} == this.ship">
+        <remove_value name="global.$hary_satellite_placer_reservations.{$fs_targetsector}"/>
       </do_if>
 
       <wait min="4s" max="7s"/>

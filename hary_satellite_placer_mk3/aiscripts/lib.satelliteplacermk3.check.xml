@@ -3,6 +3,7 @@
   <params>
     <param name="fs_sector" />
     <param name="fs_usecore" type="bool" default="true" />
+    <param name="fs_usemk3" type="bool" default="true" />
     <param name="fs_height" type="length" default="10km" />
   </params>
   <attention min="unknown">
@@ -18,6 +19,20 @@
       <create_position name="$finalpos" x="$fs_anchor.x" y="$fs_anchor.y" z="$fs_anchor.z" space="$fs_sector"/>
 
       <set_value name="$fs_needcoverage" exact="true" />
+      <do_if value="$fs_usemk3">
+        <find_object name="$fs_mk3satellites" macro="[macro.satellite_mk3_macro]" space="$fs_sector" owner="faction.player" multiple="true"/>
+        <do_if value="$fs_mk3satellites.count">
+          <set_value name="$fs_needcoverage" exact="false" />
+        </do_if>
+      </do_if>
+
+      <do_if value="not $fs_needcoverage">
+        <return>
+          <retval name="finalpos" value="$finalpos" />
+          <retval name="needcoverage" value="$fs_needcoverage" />
+        </return>
+      </do_if>
+
       <find_object name="$fs_satellites" macro="[macro.satellite_mk3_macro, macro.eq_arg_satellite_01_macro, macro.eq_arg_satellite_02_macro]" space="$fs_sector" owner="faction.player" multiple="true"/>
       <do_all exact="$fs_satellites.count" counter="$sati">
         <do_if value="$fs_satellites.{$sati}.position.distanceto.{$finalpos} lt ($fs_satellites.{$sati}.macro.maxradarrange - 1km)">
