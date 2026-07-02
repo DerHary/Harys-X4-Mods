@@ -29,7 +29,7 @@
       <set_value name="global.$hary_satellite_placer_reservations" exact="table[]"/>
     </do_if>
 
-    <set_value name="$fs_satellite_price" exact="500000" />
+    <set_value name="$fs_satellite_price" exact="8000000" />
     <set_order_syncpoint_reached order="this.ship.order"/>
     <set_command_action commandaction="commandaction.standingby"/>
   </init>
@@ -148,6 +148,8 @@
         <run_script name="'lib.satelliteplacermk3.check'">
           <param name="fs_sector" value="this.ship.sector" />
           <param name="fs_usecore" value="$fs_usecore" />
+          <param name="fs_usemk3" value="$fs_usemk3" />
+          <param name="fs_height" value="$fs_height" />
           <save_retval name="finalpos" variable="$finalpos" />
           <save_retval name="needcoverage" variable="$fs_needcoverage" />
         </run_script>
