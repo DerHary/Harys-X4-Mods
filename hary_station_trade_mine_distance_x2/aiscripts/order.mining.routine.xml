@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="/aiscript/init/do_if[@value='this.isplayerowned']/set_value[@name='$maxrange']">
+    <set_value name="$maxrange" exact="([@this.assignedcontrolled.commander.tradenpc.skill.management, @this.skill.piloting].max / 3) * 2"/>
+  </replace>
+  <replace sel="/aiscript/patch[@sinceversion='3']/do_if[@value='this.isplayerowned']/set_value[@name='$maxrange']">
+    <set_value name="$maxrange" exact="([@this.assignedcontrolled.commander.tradenpc.skill.management, @this.assignedcontrolled.pilot.skill.piloting].max / 3) * 2"/>
+  </replace>
+</diff>

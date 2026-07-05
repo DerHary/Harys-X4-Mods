@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content id="hary_station_trade_mine_distance_x2" name="Station Trade + Mine Distance x2" author="Hary" version="100" date="2026-07-04" save="0" sync="false" description="Doubles the trade and mining range for player-owned stations and their subordinates. Max range increases from 5 to 10 jumps at full skill.">
+  <dependency version="800"/>
+</content>
