@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<macros xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <macro name="hary_fate_sector_ZO_c001_s001_z006_macro" class="zone">
+    <component ref="standardzone" />
+    <connections>
+      <connection name="hary_fate_sector_GA_g001_c001_s001_z006_Cluster_13_Sector001_z001_connection" ref="gates">
+        <offset>
+          <position x="0" y="1000" z="0" />
+          <rotation yaw="95" pitch="0" roll="0" />
+        </offset>
+        <macro ref="props_gates_anc_gate_macro" connection="space" />
+      </connection>
+    </connections>
+  </macro>
+  <macro name="hary_fate_sector_ZO_c001_s001_z007_macro" class="zone">
+    <component ref="standardzone" />
+    <connections />
+  </macro>
+  <macro name="hary_fate_sector_ZO_c001_s001_z008_macro" class="zone">
+    <component ref="standardzone" />
+    <connections />
+  </macro>
+  <macro name="hary_fate_sector_ZO_c001_s001_z009_macro" class="zone">
+    <component ref="standardzone" />
+    <connections />
+  </macro>
+  <macro name="hary_fate_sector_ZO_c001_s001_z010_macro" class="zone">
+    <component ref="standardzone" />
+    <connections />
+  </macro>
+  <macro name="hary_fate_sector_ZO_c001_s001_z011_macro" class="zone">
+    <component ref="standardzone" />
+    <connections />
+  </macro>
+</macros>

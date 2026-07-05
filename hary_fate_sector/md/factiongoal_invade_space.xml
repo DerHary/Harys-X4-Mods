@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/mdscript/cues/cue[@name='Start']/actions/do_all[@counter='$i']/do_if[@value='$AdjacentSectors.{$i}.cluster == $TargetCluster']">
+    <!--Fallback to search for gates instead of highways.-->
+    <do_if value="not $LocalEntryPoints.count">
+      <find_gate name="$LocalEntryPoints" destination="$Target" space="$AdjacentSectors.{$i}" multiple="true" />
+    </do_if>
+  </add>
+</diff>

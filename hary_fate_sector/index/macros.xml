@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<index>
+  <entry name="hary_fate_sector_CL_*" value="extensions\hary_fate_sector\maps\xu_ep2_universe\hary_fate_sector_clusters" />
+  <entry name="hary_fate_sector_SE_*" value="extensions\hary_fate_sector\maps\xu_ep2_universe\hary_fate_sector_sectors" />
+  <entry name="hary_fate_sector_ZO_*" value="extensions\hary_fate_sector\maps\xu_ep2_universe\hary_fate_sector_zones" />
+</index>

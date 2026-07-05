@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content id="hary_fate_sector" name="Fate Sector" description="Adds the unclaimed sector Fate, discovered by the Argon two years ago and now linked to Second Contact II Flashpoint." author="hary" version="1" date="07/05/2026" save="0" enabled="1">
+  <dependency version="900" />
+</content>

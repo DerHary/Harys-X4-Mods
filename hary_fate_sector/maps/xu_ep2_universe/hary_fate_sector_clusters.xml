@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="hary_fate_sector_CL_c001_macro" class="cluster">
+    <component ref="standardcluster" />
+    <connections>
+      <connection name="hary_fate_sector_SE_c001_s001_connection" ref="sectors">
+        <offset>
+          <position x="0" y="0" z="0" />
+        </offset>
+        <macro ref="hary_fate_sector_SE_c001_s001_macro" connection="cluster" />
+      </connection>
+      <connection name="c001_s001_r001_hary_fate_sector_re_regdefhelium_hash_77755694_connection" ref="regions">
+        <offset>
+          <position x="-38333" y="0" z="148333" />
+        </offset>
+        <macro name="c001_s001_r001_hary_fate_sector_re_regdefhelium_hash_77755694_macro">
+          <component connection="cluster" ref="standardregion" />
+          <properties>
+            <region ref="hary_fate_sector_re_regdefhelium_hash_77755694" />
+          </properties>
+        </macro>
+      </connection>
+      <connection name="c001_s001_r002_hary_fate_sector_re_regdefhydrogen_hash_15862785_connection" ref="regions">
+        <offset>
+          <position x="76667" y="0" z="146667" />
+        </offset>
+        <macro name="c001_s001_r002_hary_fate_sector_re_regdefhydrogen_hash_15862785_macro">
+          <component connection="cluster" ref="standardregion" />
+          <properties>
+            <region ref="hary_fate_sector_re_regdefhydrogen_hash_15862785" />
+          </properties>
+        </macro>
+      </connection>
+      <connection name="c001_s001_r003_hary_fate_sector_re_regdefice_hash_66229143_connection" ref="regions">
+        <offset>
+          <position x="121667" y="0" z="71667" />
+        </offset>
+        <macro name="c001_s001_r003_hary_fate_sector_re_regdefice_hash_66229143_macro">
+          <component connection="cluster" ref="standardregion" />
+          <properties>
+            <region ref="hary_fate_sector_re_regdefice_hash_66229143" />
+          </properties>
+        </macro>
+      </connection>
+      <connection name="c001_s001_r004_hary_fate_sector_re_regdefmethane_hash_68811484_connection" ref="regions">
+        <offset>
+          <position x="161667" y="0" z="3333" />
+        </offset>
+        <macro name="c001_s001_r004_hary_fate_sector_re_regdefmethane_hash_68811484_macro">
+          <component connection="cluster" ref="standardregion" />
+          <properties>
+            <region ref="hary_fate_sector_re_regdefmethane_hash_68811484" />
+          </properties>
+        </macro>
+      </connection>
+      <connection name="c001_s001_r005_hary_fate_sector_re_regdefnividium_hash_39954307_connection" ref="regions">
+        <offset>
+          <position x="126667" y="0" z="-80000" />
+        </offset>
+        <macro name="c001_s001_r005_hary_fate_sector_re_regdefnividium_hash_39954307_macro">
+          <component connection="cluster" ref="standardregion" />
+          <properties>
+            <region ref="hary_fate_sector_re_regdefnividium_hash_39954307" />
+          </properties>
+        </macro>
+      </connection>
+      <connection name="c001_s001_r006_hary_fate_sector_re_regdefore_hash_7618135_connection" ref="regions">
+        <offset>
+          <position x="61667" y="0" z="-148333" />
+        </offset>
+        <macro name="c001_s001_r006_hary_fate_sector_re_regdefore_hash_7618135_macro">
+          <component connection="cluster" ref="standardregion" />
+          <properties>
+            <region ref="hary_fate_sector_re_regdefore_hash_7618135" />
+          </properties>
+        </macro>
+      </connection>
+      <connection name="c001_s001_r007_hary_fate_sector_re_regdefsilicon_hash_75176019_connection" ref="regions">
+        <offset>
+          <position x="-55000" y="0" z="-155000" />
+        </offset>
+        <macro name="c001_s001_r007_hary_fate_sector_re_regdefsilicon_hash_75176019_macro">
+          <component connection="cluster" ref="standardregion" />
+          <properties>
+            <region ref="hary_fate_sector_re_regdefsilicon_hash_75176019" />
+          </properties>
+        </macro>
+      </connection>
+      <connection ref="content">
+        <macro>
+          <component connection="space" ref="Cluster_404" />
+        </macro>
+      </connection>
+    </connections>
+  </macro>
+</macros>

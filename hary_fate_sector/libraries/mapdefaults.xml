@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/defaults">
+    <dataset macro="hary_fate_sector_CL_c001_macro">
+      <properties>
+        <identification name="{65682243,1}" description="{65682243,2}" image="enc_cluster01" />
+        <sounds>
+          <music ref="music_dlc_terran_soundtrack_terran_pioneers" />
+        </sounds>
+        <area factionlogic="true" />
+        <system />
+      </properties>
+    </dataset>
+    <dataset macro="hary_fate_sector_SE_c001_s001_macro">
+      <properties>
+        <identification name="{65682243,1}" description="{65682243,2}" image="enc_cluster01" />
+        <resourceareas>
+          <resourcearea amount="1" ref="sphere_large_ore_veryhigh_veryfast" />
+          <resourcearea amount="1" ref="sphere_large_silicon_veryhigh_veryfast" />
+          <resourcearea amount="1" ref="sphere_large_ice_veryhigh_veryfast" />
+          <resourcearea amount="1" ref="sphere_large_nividium_veryhigh_veryfast" />
+          <resourcearea amount="1" ref="sphere_large_hydrogen_veryhigh_veryfast" />
+          <resourcearea amount="1" ref="sphere_large_helium_veryhigh_veryfast" />
+          <resourcearea amount="1" ref="sphere_large_methane_veryhigh_veryfast" />
+        </resourceareas>
+        <area sunlight="1.5" economy="1.0" security="1.0" />
+        <system />
+      </properties>
+    </dataset>
+  </add>
+</diff>

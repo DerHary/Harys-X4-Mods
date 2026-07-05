@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<regions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="region_definitions.xsd">
+  <region name="hary_fate_sector_re_regdefhelium_hash_77755694" density="1.5" rotation="0" noisescale="10000" seed="1337" minnoisevalue="0.15" maxnoisevalue="1">
+    <boundary class="sphere">
+      <size r="50000" />
+    </boundary>
+    <falloff>
+      <lateral>
+        <step position="0.0" value="0.0" />
+        <step position="0.1" value="1.0" />
+        <step position="0.9" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </lateral>
+      <radial>
+        <step position="0.0" value="1.0" />
+        <step position="0.8" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </radial>
+    </falloff>
+    <fields>
+      <nebula ref="fogpattern_v2_macro" localred="16" localgreen="19" localblue="22" localdensity="0" uniformred="10" uniformgreen="14" uniformblue="20" uniformdensity="0.3" backgroundfog="false" resources="helium" />
+    </fields>
+  </region>
+  <region name="hary_fate_sector_re_regdefhydrogen_hash_15862785" density="1.5" rotation="0" noisescale="10000" seed="1337" minnoisevalue="0.15" maxnoisevalue="1">
+    <boundary class="sphere">
+      <size r="50000" />
+    </boundary>
+    <falloff>
+      <lateral>
+        <step position="0.0" value="0.0" />
+        <step position="0.1" value="1.0" />
+        <step position="0.9" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </lateral>
+      <radial>
+        <step position="0.0" value="1.0" />
+        <step position="0.8" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </radial>
+    </falloff>
+    <fields>
+      <nebula ref="fogpattern_v2_macro" localred="16" localgreen="19" localblue="22" localdensity="0" uniformred="117" uniformgreen="107" uniformblue="129" uniformdensity="0.5" backgroundfog="false" resources="hydrogen" />
+    </fields>
+  </region>
+  <region name="hary_fate_sector_re_regdefice_hash_66229143" density="1.5" rotation="0" noisescale="10000" seed="1337" minnoisevalue="0.15" maxnoisevalue="1">
+    <boundary class="sphere">
+      <size r="50000" />
+    </boundary>
+    <falloff>
+      <lateral>
+        <step position="0.0" value="0.0" />
+        <step position="0.1" value="1.0" />
+        <step position="0.9" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </lateral>
+      <radial>
+        <step position="0.0" value="1.0" />
+        <step position="0.8" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </radial>
+    </falloff>
+    <fields>
+      <asteroid groupref="asteroid_ice_l" densityfactor="3" rotation="0" rotationvariation="8" noisescale="5000" seed="26041984" minnoisevalue="0.75" maxnoisevalue="1" />
+    </fields>
+  </region>
+  <region name="hary_fate_sector_re_regdefmethane_hash_68811484" density="1.5" rotation="0" noisescale="10000" seed="1337" minnoisevalue="0.15" maxnoisevalue="1">
+    <boundary class="sphere">
+      <size r="50000" />
+    </boundary>
+    <falloff>
+      <lateral>
+        <step position="0.0" value="0.0" />
+        <step position="0.1" value="1.0" />
+        <step position="0.9" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </lateral>
+      <radial>
+        <step position="0.0" value="1.0" />
+        <step position="0.8" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </radial>
+    </falloff>
+    <fields>
+      <nebula ref="fogpattern_v2_macro" localred="16" localgreen="19" localblue="22" localdensity="0" uniformred="10" uniformgreen="14" uniformblue="20" uniformdensity="0.3" backgroundfog="false" resources="methane" />
+    </fields>
+  </region>
+  <region name="hary_fate_sector_re_regdefnividium_hash_39954307" density="1.5" rotation="0" noisescale="10000" seed="1337" minnoisevalue="0.15" maxnoisevalue="1">
+    <boundary class="sphere">
+      <size r="50000" />
+    </boundary>
+    <falloff>
+      <lateral>
+        <step position="0.0" value="0.0" />
+        <step position="0.1" value="1.0" />
+        <step position="0.9" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </lateral>
+      <radial>
+        <step position="0.0" value="1.0" />
+        <step position="0.8" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </radial>
+    </falloff>
+    <fields>
+      <asteroid groupref="asteroid_nividium_l" densityfactor="0.25" rotation="0" rotationvariation="4" noisescale="15000" seed="8888" minnoisevalue="0.85" maxnoisevalue="1" />
+    </fields>
+  </region>
+  <region name="hary_fate_sector_re_regdefore_hash_7618135" density="1.5" rotation="0" noisescale="10000" seed="1337" minnoisevalue="0.15" maxnoisevalue="1">
+    <boundary class="sphere">
+      <size r="50000" />
+    </boundary>
+    <falloff>
+      <lateral>
+        <step position="0.0" value="0.0" />
+        <step position="0.1" value="1.0" />
+        <step position="0.9" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </lateral>
+      <radial>
+        <step position="0.0" value="1.0" />
+        <step position="0.8" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </radial>
+    </falloff>
+    <fields>
+      <asteroid groupref="asteroid_ore_l" densityfactor="1" rotation="0" rotationvariation="4" noisescale="15000" seed="8888" minnoisevalue="0.7" maxnoisevalue="1" />
+    </fields>
+  </region>
+  <region name="hary_fate_sector_re_regdefsilicon_hash_75176019" density="1.5" rotation="0" noisescale="10000" seed="1337" minnoisevalue="0.15" maxnoisevalue="1">
+    <boundary class="sphere">
+      <size r="50000" />
+    </boundary>
+    <falloff>
+      <lateral>
+        <step position="0.0" value="0.0" />
+        <step position="0.1" value="1.0" />
+        <step position="0.9" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </lateral>
+      <radial>
+        <step position="0.0" value="1.0" />
+        <step position="0.8" value="1.0" />
+        <step position="1.0" value="0.0" />
+      </radial>
+    </falloff>
+    <fields>
+      <asteroid groupref="asteroid_silicon_l" densityfactor="1" rotation="360" rotationvariation="4" noisescale="15000" seed="8888" minnoisevalue="0.6" maxnoisevalue="1" />
+    </fields>
+  </region>
+</regions>

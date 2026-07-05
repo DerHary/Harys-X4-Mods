@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/macros/macro[@name='XU_EP2_universe_macro']/connections">
+    <connection name="hary_fate_sector_CL_c001_connection" ref="clusters">
+      <offset>
+        <position x="-60000000" y="0" z="0" />
+      </offset>
+      <macro ref="hary_fate_sector_CL_c001_macro" connection="galaxy" />
+    </connection>
+    <connection name="hary_fate_sector_GA_g001_Cluster_13_Sector001_z001_c001_s001_z006_connection" ref="destination" path="../Cluster_13_connection/Cluster_13_Sector001_connection/hary_fate_sector_ZO_Cluster_13_Sector001_z001_connection/hary_fate_sector_GA_g001_Cluster_13_Sector001_z001_c001_s001_z006_connection">
+      <macro connection="destination" path="../../../../../hary_fate_sector_CL_c001_connection/hary_fate_sector_SE_c001_s001_connection/hary_fate_sector_ZO_c001_s001_z006_connection/hary_fate_sector_GA_g001_c001_s001_z006_Cluster_13_Sector001_z001_connection" />
+    </connection>
+  </add>
+</diff>

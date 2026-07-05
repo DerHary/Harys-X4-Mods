@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="hary_fate_sector_SE_c001_s001_macro" class="sector">
+    <component ref="standardsector" />
+    <connections>
+      <connection name="hary_fate_sector_ZO_c001_s001_z006_connection" ref="zones">
+        <offset>
+          <position x="-151734" y="0" z="2890" />
+        </offset>
+        <macro ref="hary_fate_sector_ZO_c001_s001_z006_macro" connection="sector" />
+      </connection>
+      <connection name="hary_fate_sector_ZO_c001_s001_z007_connection" ref="zones">
+        <offset>
+          <position x="-111804" y="0" z="0" />
+        </offset>
+        <macro ref="hary_fate_sector_ZO_c001_s001_z007_macro" connection="sector" />
+      </connection>
+      <connection name="hary_fate_sector_ZO_c001_s001_z008_connection" ref="zones">
+        <offset>
+          <position x="0" y="0" z="0" />
+        </offset>
+        <macro ref="hary_fate_sector_ZO_c001_s001_z008_macro" connection="sector" />
+      </connection>
+      <connection name="hary_fate_sector_ZO_c001_s001_z009_connection" ref="zones">
+        <offset>
+          <position x="111804" y="0" z="0" />
+        </offset>
+        <macro ref="hary_fate_sector_ZO_c001_s001_z009_macro" connection="sector" />
+      </connection>
+      <connection name="hary_fate_sector_ZO_c001_s001_z010_connection" ref="zones">
+        <offset>
+          <position x="-111804" y="0" z="111804" />
+        </offset>
+        <macro ref="hary_fate_sector_ZO_c001_s001_z010_macro" connection="sector" />
+      </connection>
+      <connection name="hary_fate_sector_ZO_c001_s001_z011_connection" ref="zones">
+        <offset>
+          <position x="0" y="0" z="111804" />
+        </offset>
+        <macro ref="hary_fate_sector_ZO_c001_s001_z011_macro" connection="sector" />
+      </connection>
+    </connections>
+  </macro>
+</macros>

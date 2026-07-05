@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<content id="hary_destiny_system" name="Destiny System" author="hary" version="100" date="2026-02-01" save="true" description="Adds the Destiny system southeast of Last Frontier.">
-  <dependency version="800" />
-</content>
