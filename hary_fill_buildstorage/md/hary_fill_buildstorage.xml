@@ -7,8 +7,14 @@
       </conditions>
       <actions>
         <set_value name="$target" exact="event.param.$object" />
-        <set_value name="$construction" exact="event.param.$construction" />
-        <set_value name="$offsetcomponent" exact="event.param.$offsetcomponent" />
+        <set_value name="$construction" exact="null" />
+        <do_if value="event.param.$construction?">
+          <set_value name="$construction" exact="event.param.$construction" />
+        </do_if>
+        <set_value name="$offsetcomponent" exact="null" />
+        <do_if value="event.param.$offsetcomponent?">
+          <set_value name="$offsetcomponent" exact="event.param.$offsetcomponent" />
+        </do_if>
         <set_value name="$hasbuildstorage" exact="false" />
         <do_if value="$target and ($target.isclass.station or $target.isclass.buildstorage or $target.buildstorage?)">
           <set_value name="$hasbuildstorage" exact="true" />
@@ -39,8 +45,14 @@
       </conditions>
       <actions>
         <set_value name="$target" exact="event.param.$object" />
-        <set_value name="$construction" exact="event.param.$construction" />
-        <set_value name="$offsetcomponent" exact="event.param.$offsetcomponent" />
+        <set_value name="$construction" exact="null" />
+        <do_if value="event.param.$construction?">
+          <set_value name="$construction" exact="event.param.$construction" />
+        </do_if>
+        <set_value name="$offsetcomponent" exact="null" />
+        <do_if value="event.param.$offsetcomponent?">
+          <set_value name="$offsetcomponent" exact="event.param.$offsetcomponent" />
+        </do_if>
         <set_value name="$buildstorage" exact="null" />
         <do_if value="$target and ($target.isclass.buildstorage or $target.buildstorage?)">
           <set_value name="$buildstorage" exact="if $target.isclass.buildstorage then $target else $target.buildstorage" />
