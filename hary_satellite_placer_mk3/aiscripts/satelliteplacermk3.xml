@@ -10,6 +10,9 @@
         <input_param name="step" value="5km"/>
       </param>
       <param name="fs_usecore" default="true" type="bool" text="{920103, 9}"/>
+      <param name="debugchance" type="bool" default="0" advanced="true" comment="Print debug output">
+        <input_param name="truevalue" value="100"/>
+      </param>
     </params>
     <requires>
       <match shiptype="shiptype.lasertower" negate="true"/>
